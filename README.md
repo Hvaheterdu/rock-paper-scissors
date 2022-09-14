@@ -1,12 +1,12 @@
 # RockPaperScissor
 
-This is a simple Rock-Paper-Scissor game between you and the computer.
+A simple Rock-Paper-Scissor game between you and the computer.
 
-Better solutions are most likely out there, but this was my first go at using the pygame module.
+Better solutions are most likely out there, but this was my first use of the pygame module.
 
 ## Prerequisite
 
-The ***pygame*** package need to be installed.
+The ***pygame*** package needs to be installed.
 
 If you don't have it installed, it can be installed by typing
 
@@ -30,28 +30,27 @@ The second one is usually used on macOS, because the system uses Python@2.7 and 
 
 Download/Clone the repo and enter the *src* folder.
 
-Type
+If you are using a mac, type the command below in the Terminal.
 
 ```
 $ python3 main.py
 ```
 
-in the terminal window if you are on a Mac or
+If you are using a windows machine, type the command below in Powershell
 
 ```
 $ python main.py
 ```
-
-in the terminal/Powershell window if you are on a Linux or Windows machine and the game will start.
+By typing this command, the game will start.
 
 ## GUI
 
-As said, this is a very simple GUI.
+As said, this is a straightforward GUI.
 
-When you start the program you are greeted with a "home screen", that looks like
+When you start the program, you are greeted with a "home screen" that looks like
 
-<img src="https://github.com/Hvaheterdu/rock-paper-scissor/blob/main/resources/img/home_screen.png" width="700">
+<img src="https://github.com/Hvaheterdu/rock-paper-scissor/blob/main/resources/images/home_screen.png" width="700">
 
-This is an example of how the game looks when you play it
+This is an example of how the game looks when you play it.
 
-<img src="https://github.com/Hvaheterdu/rock-paper-scissor/blob/main/resources/img/game_screen.png" width="700">
+<img src="https://github.com/Hvaheterdu/rock-paper-scissor/blob/main/resources/images/game_screen.png" width="700">
