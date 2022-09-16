@@ -14,13 +14,13 @@ WHITE = (255, 255, 255)
 TEXT_COLOUR = (0, 0, 0)
 
 # Current directory for this file
-PARENT_DIR = os.getcwd()
+PARENT_DIR = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
 
 # Images used
-ROCK_IMG = pygame.image.load(os.path.join(PARENT_DIR, 'img/rock.jpg'))
-PAPER_IMG = pygame.image.load(os.path.join(PARENT_DIR, 'img/paper.png'))
+ROCK_IMG = pygame.image.load(os.path.join(PARENT_DIR, 'resources', 'images', 'rock.png'))
+PAPER_IMG = pygame.image.load(os.path.join(PARENT_DIR, 'resources', 'images', 'paper.png'))
 SCISSOR_IMG = pygame.image.load(
-    os.path.join(PARENT_DIR, 'img/scissor.jpg'))
+    os.path.join(PARENT_DIR, 'resources', 'images', 'scissor.png'))
 IMG = [ROCK_IMG, PAPER_IMG, SCISSOR_IMG]
 
 # Player actions
