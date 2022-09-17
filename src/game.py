@@ -21,13 +21,13 @@ ROCK_IMG = pygame.image.load(os.path.join(PARENT_DIR, 'resources', 'images', 'ro
 PAPER_IMG = pygame.image.load(os.path.join(PARENT_DIR, 'resources', 'images', 'paper.png'))
 SCISSORS_IMG = pygame.image.load(
     os.path.join(PARENT_DIR, 'resources', 'images', 'scissors.png'))
-IMG = [ROCK_IMG, PAPER_IMG, SCISSOR_IMG]
+IMG = [ROCK_IMG, PAPER_IMG, SCISSORS_IMG]
 
 # Player actions
 ROCK = "Rock"
 PAPER = "Paper"
 SCISSORS = "Scissors"
-CHOICES = [ROCK, PAPER, SCISSOR]
+CHOICES = [ROCK, PAPER, SCISSORS]
 
 
 class RockPaperScissor:
@@ -92,10 +92,10 @@ class RockPaperScissor:
                         self.screen.blit(self._scale_image(
                             IMG[rand], 300, 300), (650, 200))
                         ret = self._compute(computer_choice, PAPER)
-                    elif scissor.collidepoint(mouse_pos):
+                    elif scissors.collidepoint(mouse_pos):
                         computer_choice = CHOICES[rand]
                         self.screen.blit(self._scale_image(
-                            SCISSORs_IMG, 300, 300), (45, 200))
+                            SCISSORS_IMG, 300, 300), (45, 200))
                         self.screen.blit(self._scale_image(
                             IMG[rand], 300, 300), (650, 200))
                         ret = self._compute(computer_choice, SCISSORS)
