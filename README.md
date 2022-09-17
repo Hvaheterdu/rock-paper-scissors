@@ -1,6 +1,6 @@
-# RockPaperScissor
+# Rock paper scissors
 
-A simple Rock-Paper-Scissor game between you and the computer.
+A simple Rock paper scissors game between you and the computer.
 
 Better solutions are most likely out there, but this was my first use of the pygame module.
 
