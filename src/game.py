@@ -19,14 +19,14 @@ PARENT_DIR = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
 # Images used
 ROCK_IMG = pygame.image.load(os.path.join(PARENT_DIR, 'resources', 'images', 'rock.png'))
 PAPER_IMG = pygame.image.load(os.path.join(PARENT_DIR, 'resources', 'images', 'paper.png'))
-SCISSOR_IMG = pygame.image.load(
-    os.path.join(PARENT_DIR, 'resources', 'images', 'scissor.png'))
+SCISSORS_IMG = pygame.image.load(
+    os.path.join(PARENT_DIR, 'resources', 'images', 'scissors.png'))
 IMG = [ROCK_IMG, PAPER_IMG, SCISSOR_IMG]
 
 # Player actions
 ROCK = "Rock"
 PAPER = "Paper"
-SCISSOR = "Scissor"
+SCISSORS = "Scissors"
 CHOICES = [ROCK, PAPER, SCISSOR]
 
 
@@ -51,12 +51,12 @@ class RockPaperScissor:
         # Create screen, fill background and add window title
         self.screen = self._create_screen()
         self.screen.fill(WHITE)
-        pygame.display.set_caption('Rock Paper Scissor')
+        pygame.display.set_caption('Rock Paper Scissors')
 
         # Create rectangles that will become buttons
         rock = self._create_rect(50, 600, 80, 40)
         paper = self._create_rect(150, 600, 80, 40)
-        scissor = self._create_rect(250, 600, 80, 40)
+        scissors = self._create_rect(250, 600, 80, 40)
 
         # Rectangles to cover text to avoid overlay
         cover_left = self._create_rect(WIDTH - 920, HEIGHT - 140, 230, 58)
@@ -95,10 +95,10 @@ class RockPaperScissor:
                     elif scissor.collidepoint(mouse_pos):
                         computer_choice = CHOICES[rand]
                         self.screen.blit(self._scale_image(
-                            SCISSOR_IMG, 300, 300), (45, 200))
+                            SCISSORs_IMG, 300, 300), (45, 200))
                         self.screen.blit(self._scale_image(
                             IMG[rand], 300, 300), (650, 200))
-                        ret = self._compute(computer_choice, SCISSOR)
+                        ret = self._compute(computer_choice, SCISSORS)
                     else:
                         continue
 
@@ -109,13 +109,13 @@ class RockPaperScissor:
                         computer_score += 1
 
             # Add title and text on the buttons
-            self._draw_title(self.screen, 'Rock Paper Scissor')
+            self._draw_title(self.screen, 'Rock Paper Scissors')
             self._draw_rect(self.screen, BUTTON_COLOUR, rock)
             self._add_rect_text(self.screen, 'Rock', rock)
             self._draw_rect(self.screen, BUTTON_COLOUR, paper)
             self._add_rect_text(self.screen, 'Paper', paper)
-            self._draw_rect(self.screen, BUTTON_COLOUR, scissor)
-            self._add_rect_text(self.screen, 'Scissor', scissor)
+            self._draw_rect(self.screen, BUTTON_COLOUR, scissors)
+            self._add_rect_text(self.screen, 'Scissors', scissors)
 
             # Add computer choice, player score and computer score
             x, y = self._rect_pos(rock)
@@ -163,13 +163,13 @@ class RockPaperScissor:
             int: 1 -> player wins, 2 -> computer wins
         """
         # Compute winner
-        if (player_choice == ROCK and computer_choice == SCISSOR
+        if (player_choice == ROCK and computer_choice == SCISSORS
             or player_choice == PAPER and computer_choice == ROCK
-                or player_choice == SCISSOR and computer_choice == PAPER):
+                or player_choice == SCISSORS and computer_choice == PAPER):
             return 1
-        elif (computer_choice == ROCK and player_choice == SCISSOR
+        elif (computer_choice == ROCK and player_choice == SCISSORS
               or computer_choice == PAPER and player_choice == ROCK
-                or computer_choice == SCISSOR and player_choice == PAPER):
+                or computer_choice == SCISSORS and player_choice == PAPER):
             return 2
         return 0
 
