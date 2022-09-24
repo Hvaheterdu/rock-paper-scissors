@@ -36,7 +36,7 @@ If you are using a mac, type the command below in the Terminal.
 $ python3 main.py
 ```
 
-If you are using a windows machine, type the command below in Powershell
+If you are using a Windows machine, type the command below in Powershell
 
 ```
 $ python main.py
@@ -49,8 +49,8 @@ As said, this is a straightforward GUI.
 
 When you start the program, you are greeted with a "home screen" that looks like
 
-<img src="https://github.com/Hvaheterdu/rock-paper-scissor/blob/main/resources/images/home_screen.png" width="700">
+<img src="https://github.com/Hvaheterdu/rock-paper-scissor/blob/main/resources/images/home_screen.png" width="700" alt="">
 
 This is an example of how the game looks when you play it.
 
-<img src="https://github.com/Hvaheterdu/rock-paper-scissor/blob/main/resources/images/game_screen.png" width="700">
+<img src="https://github.com/Hvaheterdu/rock-paper-scissor/blob/main/resources/images/game_screen.png" width="700" alt="">
