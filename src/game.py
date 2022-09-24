@@ -19,18 +19,18 @@ PARENT_DIR = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
 # Images used
 ROCK_IMG = pygame.image.load(os.path.join(PARENT_DIR, 'resources', 'images', 'rock.png'))
 PAPER_IMG = pygame.image.load(os.path.join(PARENT_DIR, 'resources', 'images', 'paper.png'))
-SCISSOR_IMG = pygame.image.load(
-    os.path.join(PARENT_DIR, 'resources', 'images', 'scissor.png'))
-IMG = [ROCK_IMG, PAPER_IMG, SCISSOR_IMG]
+SCISSORS_IMG = pygame.image.load(
+    os.path.join(PARENT_DIR, 'resources', 'images', 'scissors.png'))
+IMG = [ROCK_IMG, PAPER_IMG, SCISSORS_IMG]
 
 # Player actions
-ROCK = "Rock"
-PAPER = "Paper"
-SCISSOR = "Scissor"
-CHOICES = [ROCK, PAPER, SCISSOR]
+ROCK = 'Rock'
+PAPER = 'Paper'
+SCISSORS = 'Scissors'
+CHOICES = [ROCK, PAPER, SCISSORS]
 
 
-class RockPaperScissor:
+class RockPaperScissors:
     """Game class"""
 
     def __init__(self) -> None:
@@ -51,17 +51,19 @@ class RockPaperScissor:
         # Create screen, fill background and add window title
         self.screen = self._create_screen()
         self.screen.fill(WHITE)
-        pygame.display.set_caption('Rock Paper Scissor')
+        pygame.display.set_caption('Rock Paper Scissors')
 
         # Create rectangles that will become buttons
         rock = self._create_rect(50, 600, 80, 40)
         paper = self._create_rect(150, 600, 80, 40)
-        scissor = self._create_rect(250, 600, 80, 40)
+        scissors = self._create_rect(250, 600, 90, 40)
 
-        # Rectangles to cover text to avoid overlay
+        # Rectangles to cover previous text to avoid overlay
+        # cover_left is human score text, cover_middle is middle text and
+        # cover_right is computer choice text
         cover_left = self._create_rect(WIDTH - 920, HEIGHT - 140, 230, 58)
         cover_middle = self._create_rect(WIDTH - 800, HEIGHT - 260, 555, 30)
-        cover_right = self._create_rect(WIDTH - 350, HEIGHT - 190, 300, 80)
+        cover_right = self._create_rect(WIDTH - 380, HEIGHT - 190, 320, 80)
 
         # Draw on screen
         running = True
@@ -92,13 +94,13 @@ class RockPaperScissor:
                         self.screen.blit(self._scale_image(
                             IMG[rand], 300, 300), (650, 200))
                         ret = self._compute(computer_choice, PAPER)
-                    elif scissor.collidepoint(mouse_pos):
+                    elif scissors.collidepoint(mouse_pos):
                         computer_choice = CHOICES[rand]
                         self.screen.blit(self._scale_image(
-                            SCISSOR_IMG, 300, 300), (45, 200))
+                            SCISSORS_IMG, 300, 300), (45, 200))
                         self.screen.blit(self._scale_image(
                             IMG[rand], 300, 300), (650, 200))
-                        ret = self._compute(computer_choice, SCISSOR)
+                        ret = self._compute(computer_choice, SCISSORS)
                     else:
                         continue
 
@@ -109,13 +111,13 @@ class RockPaperScissor:
                         computer_score += 1
 
             # Add title and text on the buttons
-            self._draw_title(self.screen, 'Rock Paper Scissor')
+            self._draw_title(self.screen, 'Rock Paper Scissors')
             self._draw_rect(self.screen, BUTTON_COLOUR, rock)
             self._add_rect_text(self.screen, 'Rock', rock)
             self._draw_rect(self.screen, BUTTON_COLOUR, paper)
             self._add_rect_text(self.screen, 'Paper', paper)
-            self._draw_rect(self.screen, BUTTON_COLOUR, scissor)
-            self._add_rect_text(self.screen, 'Scissor', scissor)
+            self._draw_rect(self.screen, BUTTON_COLOUR, scissors)
+            self._add_rect_text(self.screen, 'Scissors', scissors)
 
             # Add computer choice, player score and computer score
             x, y = self._rect_pos(rock)
@@ -137,7 +139,7 @@ class RockPaperScissor:
                 self._set_text(self.screen, 'Computer wins',
                                WIDTH - 500, HEIGHT - 250)
             else:
-                self._set_text(self.screen, 'Its a draw',
+                self._set_text(self.screen, "It's a draw",
                                WIDTH - 500, HEIGHT - 250)
 
             # Update screen for each new event
@@ -163,13 +165,13 @@ class RockPaperScissor:
             int: 1 -> player wins, 2 -> computer wins
         """
         # Compute winner
-        if (player_choice == ROCK and computer_choice == SCISSOR
+        if (player_choice == ROCK and computer_choice == SCISSORS
             or player_choice == PAPER and computer_choice == ROCK
-                or player_choice == SCISSOR and computer_choice == PAPER):
+                or player_choice == SCISSORS and computer_choice == PAPER):
             return 1
-        elif (computer_choice == ROCK and player_choice == SCISSOR
+        elif (computer_choice == ROCK and player_choice == SCISSORS
               or computer_choice == PAPER and player_choice == ROCK
-                or computer_choice == SCISSOR and player_choice == PAPER):
+              or computer_choice == SCISSORS and player_choice == PAPER):
             return 2
         return 0
 
