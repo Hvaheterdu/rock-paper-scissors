@@ -24,13 +24,13 @@ SCISSORS_IMG = pygame.image.load(
 IMG = [ROCK_IMG, PAPER_IMG, SCISSORS_IMG]
 
 # Player actions
-ROCK = "Rock"
-PAPER = "Paper"
-SCISSORS = "Scissors"
+ROCK = 'Rock'
+PAPER = 'Paper'
+SCISSORS = 'Scissors'
 CHOICES = [ROCK, PAPER, SCISSORS]
 
 
-class RockPaperScissor:
+class RockPaperScissors:
     """Game class"""
 
     def __init__(self) -> None:
@@ -56,12 +56,14 @@ class RockPaperScissor:
         # Create rectangles that will become buttons
         rock = self._create_rect(50, 600, 80, 40)
         paper = self._create_rect(150, 600, 80, 40)
-        scissors = self._create_rect(250, 600, 80, 40)
+        scissors = self._create_rect(250, 600, 90, 40)
 
-        # Rectangles to cover text to avoid overlay
+        # Rectangles to cover previous text to avoid overlay
+        # cover_left is human score text, cover_middle is middle text and
+        # cover_right is computer choice text
         cover_left = self._create_rect(WIDTH - 920, HEIGHT - 140, 230, 58)
         cover_middle = self._create_rect(WIDTH - 800, HEIGHT - 260, 555, 30)
-        cover_right = self._create_rect(WIDTH - 350, HEIGHT - 190, 300, 80)
+        cover_right = self._create_rect(WIDTH - 380, HEIGHT - 190, 320, 80)
 
         # Draw on screen
         running = True
@@ -137,7 +139,7 @@ class RockPaperScissor:
                 self._set_text(self.screen, 'Computer wins',
                                WIDTH - 500, HEIGHT - 250)
             else:
-                self._set_text(self.screen, 'Its a draw',
+                self._set_text(self.screen, "It's a draw",
                                WIDTH - 500, HEIGHT - 250)
 
             # Update screen for each new event
@@ -169,7 +171,7 @@ class RockPaperScissor:
             return 1
         elif (computer_choice == ROCK and player_choice == SCISSORS
               or computer_choice == PAPER and player_choice == ROCK
-                or computer_choice == SCISSORS and player_choice == PAPER):
+              or computer_choice == SCISSORS and player_choice == PAPER):
             return 2
         return 0
 
