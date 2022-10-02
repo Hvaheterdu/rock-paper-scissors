@@ -155,14 +155,12 @@ class RockPaperScissors:
         sys.exit()
 
     def _compute(self, computer_choice, player_choice) -> int:
-        """Compute who wins the round and update scores
+        """
+        Compute who wins the round and update scores
 
-        Args:
-            computer_choice (str): computer's action
-            player_choice (str): player's action
-
-        Returns:
-            int: 1 -> player wins, 2 -> computer wins
+        :param str computer_choice: computer's action
+        :param str player_choice: player's action
+        :returns: 1 -> player wins, 2 -> computer wins
         """
         # Compute winner
         if (player_choice == ROCK and computer_choice == SCISSORS
@@ -176,16 +174,14 @@ class RockPaperScissors:
         return 0
 
     def _set_font(self, inp, font, size, colour) -> tuple:
-        """Set font for text
+        """
+        Set font for text
 
-        Args:
-            inp (str): text to input
-            font (str): font type
-            size (int): text size
-            colour (rgb): text colour
-
-        Returns:
-            pygame.font.Font: return font object
+        :param str inp: text to input
+        :param str font: font type
+        :param int size: text size
+        :param rgb colour: text colour
+        :returns: pygame font object
         """
         self._font = pygame.font.SysFont(font, size)
         self._text = self._font.render(inp, True, colour)
@@ -205,13 +201,13 @@ class RockPaperScissors:
         return pygame.Rect(x, y, width, height)
 
     def _show_score(self, screen, inp, x, y):
-        """Show score of each player in the game
+        """
+        Show score of each player in the game
 
-        Args:
-            screen (pygame.Surface): screen to draw on
-            inp (str): text input
-            x (int): x coordinate
-            y (int): y coordinate
+        :param pygame.Surface screen: screen to draw on
+        :param str inp: text input
+        :param str x: x coordinate
+        :param int y: y coordinate
         """
         self._text, self._text_rect = self._set_font(
             inp, 'Calibri', 24, TEXT_COLOUR)
@@ -219,12 +215,12 @@ class RockPaperScissors:
         screen.blit(self._text, self._text_rect)
 
     def _add_rect_text(self, screen, inp, rect_obj):
-        """Add text to rectangle object
+        """
+        Add text to rectangle object
 
-        Args:
-            screen (pygame.Surface): screen to draw on
-            inp (str): text input
-            rect_obj (pygame.rect.Rect): rectangle object
+        :param pygame.Surface screen: screen to draw on
+        :param str inp: text input
+        :param pygame.rect.Rect rect_obj: rectangle object
         """
         self._text, self._text_rect = self._set_font(
             inp, 'Calibri', 24, TEXT_COLOUR)
@@ -233,13 +229,13 @@ class RockPaperScissors:
         screen.blit(self._text, self._text_rect)
 
     def _set_text(self, screen, inp, x, y):
-        """Set text to screen
+        """
+        Set text to screen
 
-        Args:
-            screen (pygame.Surface): screen to draw on
-            inp (str): text input
-            x (int): x coordinate
-            y (int): y coordinate
+        :param pygame.Surface screen: screen to draw on
+        :param str inp: text input
+        :param int x: x coordinate
+        :param int y: y coordinate
         """
         self._text, self._text_rect = self._set_font(
             inp, 'Calibri', 24, TEXT_COLOUR)
