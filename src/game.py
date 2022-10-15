@@ -206,7 +206,7 @@ class RockPaperScissors:
 
         :param pygame.Surface screen: screen to draw on
         :param str inp: text input
-        :param str x: x coordinate
+        :param int x: x coordinate
         :param int y: y coordinate
         """
         self._text, self._text_rect = self._set_font(
