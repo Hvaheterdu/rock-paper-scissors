@@ -14,7 +14,7 @@ WHITE = (255, 255, 255)
 TEXT_COLOUR = (0, 0, 0)
 
 # Current directory for this file
-PARENT_DIR = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
+PARENT_DIR = os.path.abspath(os.getcwd())
 
 # Images used
 ROCK_IMG = pygame.image.load(os.path.join(PARENT_DIR, 'resources', 'images', 'rock.png'))
