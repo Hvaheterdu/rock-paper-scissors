@@ -192,7 +192,7 @@ class RockPaperScissors:
         """Return x, y coordinate for center of rectangle """
         return rect_obj.centerx, rect_obj.centery
 
-    def _create_screen(self) -> pygame.Surface:
+    def _create_screen(self) -> pygame.surface.Surface:
         """Create screen to draw on """
         return pygame.display.set_mode((WIDTH, HEIGHT))
 
@@ -242,10 +242,9 @@ class RockPaperScissors:
         self._text_rect.center = (x, y)
         screen.blit(self._text, self._text_rect)
 
-    def _scale_image(self, image, x, y) -> pygame.Surface:
-        """Return scaled image of size x, y.
-        These coordinates need to be in a tuple"""
-        return pygame.transform.smoothscale(image, (x, y))
+    def _scale_image(self, image, x, y) -> pygame.surface.Surface:
+        """Return scaled image of size x, y, which need to be in a tuple"""
+        return pygame.transform.smoothscale(image, (x,y))
 
     def _draw_rect(self, screen, colour, rect_obj) -> pygame.rect.Rect:
         """Draw rectangle on screen with given colour"""
