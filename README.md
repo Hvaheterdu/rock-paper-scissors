@@ -6,7 +6,7 @@ Better solutions are most likely out there, but this was the first time I used t
 
 ## Prerequisite
 
-This game has been written with Python@3.9.13.
+This game has been written with Python@3.9
 
 This program requires the _pygame_ module.
 
