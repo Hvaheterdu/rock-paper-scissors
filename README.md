@@ -18,12 +18,12 @@ $ pip install pygame
 
 ## How to run
 
-Download/Clone the repo and enter the *src* folder.
+Download/Clone the repo and enter the *root* folder.
 
 Type the command below in the Terminal/Powershell window.
 
 ```
-$ python3 main.py
+$ python3 src/main.py
 ```
 
 ## GUI
