@@ -17,8 +17,10 @@ TEXT_COLOUR = (0, 0, 0)
 PARENT_DIR = os.path.abspath(os.getcwd())
 
 # Images used
-ROCK_IMG = pygame.image.load(os.path.join(PARENT_DIR, 'resources', 'images', 'rock.png'))
-PAPER_IMG = pygame.image.load(os.path.join(PARENT_DIR, 'resources', 'images', 'paper.png'))
+ROCK_IMG = pygame.image.load(os.path.join(
+    PARENT_DIR, 'resources', 'images', 'rock.png'))
+PAPER_IMG = pygame.image.load(os.path.join(
+    PARENT_DIR, 'resources', 'images', 'paper.png'))
 SCISSORS_IMG = pygame.image.load(
     os.path.join(PARENT_DIR, 'resources', 'images', 'scissors.png'))
 IMG = [ROCK_IMG, PAPER_IMG, SCISSORS_IMG]
@@ -244,7 +246,7 @@ class RockPaperScissors:
 
     def _scale_image(self, image, x, y) -> pygame.surface.Surface:
         """Return scaled image of size x, y, which need to be in a tuple"""
-        return pygame.transform.smoothscale(image, (x,y))
+        return pygame.transform.smoothscale(image, (x, y))
 
     def _draw_rect(self, screen, colour, rect_obj) -> pygame.rect.Rect:
         """Draw rectangle on screen with given colour"""
