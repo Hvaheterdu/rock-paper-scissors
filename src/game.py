@@ -5,7 +5,6 @@ import os
 import sys
 import pygame
 
-
 # Colour and screen size
 WIDTH = 1000
 HEIGHT = 800
