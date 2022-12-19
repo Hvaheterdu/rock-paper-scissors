@@ -32,8 +32,8 @@ As said, this is a straightforward GUI.
 
 When you start the program, you are greeted with a "home screen" that looks like
 
-<img src="https://github.com/Hvaheterdu/rock-paper-scissor/blob/main/resources/images/home_screen.png" width="700" alt="">
+<img src="https://github.com/Hvaheterdu/rock-paper-scissor/blob/main/docs/images/home_screen.png" width="700" alt="">
 
 The image below shows how the game looks when you play it.
 
-<img src="https://github.com/Hvaheterdu/rock-paper-scissor/blob/main/resources/images/game_screen.png" width="700" alt="">
+<img src="https://github.com/Hvaheterdu/rock-paper-scissor/blob/main/docs/images/game_screen.png" width="700" alt="">
