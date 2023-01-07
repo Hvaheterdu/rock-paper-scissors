@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
-from random import Random
+
 import os
 import sys
+from random import Random
+
 import pygame
 
 
