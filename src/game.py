@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 
-
 import os
 import sys
 from random import Random
 
 import pygame
-
 
 # Colour and screen size
 WIDTH = 1000
