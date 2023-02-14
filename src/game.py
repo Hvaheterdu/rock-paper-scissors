@@ -21,8 +21,8 @@ ROCK_IMG = pygame.image.load(os.path.join(
     PARENT_DIR, 'resources', 'images', 'rock.png'))
 PAPER_IMG = pygame.image.load(os.path.join(
     PARENT_DIR, 'resources', 'images', 'paper.png'))
-SCISSORS_IMG = pygame.image.load(
-    os.path.join(PARENT_DIR, 'resources', 'images', 'scissors.png'))
+SCISSORS_IMG = pygame.image.load(os.path.join(
+    PARENT_DIR, 'resources', 'images', 'scissors.png'))
 IMG = [ROCK_IMG, PAPER_IMG, SCISSORS_IMG]
 
 # Player actions
