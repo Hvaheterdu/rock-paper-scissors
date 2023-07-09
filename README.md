@@ -1,6 +1,6 @@
 # Rock paper scissors
 
-This repo is a simple Rock paper scissors game between a player and the computer.
+This is a simple Rock paper scissors game between a player and the computer.
 
 Better solutions are most likely out there, but this was the first time I used the pygame module.
 
@@ -28,9 +28,9 @@ $ python3 src/main.py
 
 ## GUI
 
-As said, this is a straightforward GUI.
+The GUI is simple and straightforward.
 
-When you start the program, you are greeted with a "home screen" that looks like
+When you start the program, you are greeted with a "home screen"
 
 <img src="https://github.com/Hvaheterdu/rock-paper-scissor/blob/main/docs/images/home_screen.png" width="700" alt="">
 
