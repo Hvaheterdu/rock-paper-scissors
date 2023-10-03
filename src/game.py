@@ -18,18 +18,21 @@ TEXT_COLOUR = (0, 0, 0)
 PARENT_DIR = os.path.abspath(os.getcwd())
 
 # Images used
-ROCK_IMG = pygame.image.load(os.path.join(
-    PARENT_DIR, 'resources', 'images', 'rock.png'))
-PAPER_IMG = pygame.image.load(os.path.join(
-    PARENT_DIR, 'resources', 'images', 'paper.png'))
-SCISSORS_IMG = pygame.image.load(os.path.join(
-    PARENT_DIR, 'resources', 'images', 'scissors.png'))
+ROCK_IMG = pygame.image.load(
+    os.path.join(PARENT_DIR, "resources", "images", "rock.png")
+)
+PAPER_IMG = pygame.image.load(
+    os.path.join(PARENT_DIR, "resources", "images", "paper.png")
+)
+SCISSORS_IMG = pygame.image.load(
+    os.path.join(PARENT_DIR, "resources", "images", "scissors.png")
+)
 IMG = [ROCK_IMG, PAPER_IMG, SCISSORS_IMG]
 
 # Player actions
-ROCK = 'Rock'
-PAPER = 'Paper'
-SCISSORS = 'Scissors'
+ROCK = "Rock"
+PAPER = "Paper"
+SCISSORS = "Scissors"
 CHOICES = [ROCK, PAPER, SCISSORS]
 
 
@@ -54,7 +57,7 @@ class RockPaperScissors:
         # Create screen, fill background and add window title
         self.screen = self._create_screen()
         self.screen.fill(WHITE)
-        pygame.display.set_caption('Rock Paper Scissors')
+        pygame.display.set_caption("Rock Paper Scissors")
 
         # Create rectangles that will become buttons
         rock = self._create_rect(50, 600, 80, 40)
@@ -85,24 +88,30 @@ class RockPaperScissors:
                     # points. Checks if mouse is over button
                     if rock.collidepoint(mouse_pos):
                         computer_choice = CHOICES[rand]
-                        self.screen.blit(self._scale_image(
-                            ROCK_IMG, 300, 300), (45, 200))
-                        self.screen.blit(self._scale_image(
-                            IMG[rand], 300, 300), (650, 200))
+                        self.screen.blit(
+                            self._scale_image(ROCK_IMG, 300, 300), (45, 200)
+                        )
+                        self.screen.blit(
+                            self._scale_image(IMG[rand], 300, 300), (650, 200)
+                        )
                         ret = self._compute(computer_choice, ROCK)
                     elif paper.collidepoint(mouse_pos):
                         computer_choice = CHOICES[rand]
-                        self.screen.blit(self._scale_image(
-                            PAPER_IMG, 300, 300), (45, 200))
-                        self.screen.blit(self._scale_image(
-                            IMG[rand], 300, 300), (650, 200))
+                        self.screen.blit(
+                            self._scale_image(PAPER_IMG, 300, 300), (45, 200)
+                        )
+                        self.screen.blit(
+                            self._scale_image(IMG[rand], 300, 300), (650, 200)
+                        )
                         ret = self._compute(computer_choice, PAPER)
                     elif scissors.collidepoint(mouse_pos):
                         computer_choice = CHOICES[rand]
-                        self.screen.blit(self._scale_image(
-                            SCISSORS_IMG, 300, 300), (45, 200))
-                        self.screen.blit(self._scale_image(
-                            IMG[rand], 300, 300), (650, 200))
+                        self.screen.blit(
+                            self._scale_image(SCISSORS_IMG, 300, 300), (45, 200)
+                        )
+                        self.screen.blit(
+                            self._scale_image(IMG[rand], 300, 300), (650, 200)
+                        )
                         ret = self._compute(computer_choice, SCISSORS)
                     else:
                         continue
@@ -114,36 +123,43 @@ class RockPaperScissors:
                         computer_score += 1
 
             # Add title and text on the buttons
-            self._draw_title(self.screen, 'Rock Paper Scissors')
+            self._draw_title(self.screen, "Rock Paper Scissors")
             self._draw_rect(self.screen, BUTTON_COLOUR, rock)
-            self._add_rect_text(self.screen, 'Rock', rock)
+            self._add_rect_text(self.screen, "Rock", rock)
             self._draw_rect(self.screen, BUTTON_COLOUR, paper)
-            self._add_rect_text(self.screen, 'Paper', paper)
+            self._add_rect_text(self.screen, "Paper", paper)
             self._draw_rect(self.screen, BUTTON_COLOUR, scissors)
-            self._add_rect_text(self.screen, 'Scissors', scissors)
+            self._add_rect_text(self.screen, "Scissors", scissors)
 
             # Add computer choice, player score and computer score
             x, y = self._rect_pos(rock)
             self._show_score(
-                self.screen, f'Player score: {player_score}', WIDTH - 810, HEIGHT - 125)
+                self.screen, f"Player score: {player_score}", WIDTH - 810, HEIGHT - 125
+            )
             self._set_text(
-                self.screen, f'Computer choose: {computer_choice}', x + 700, y)
+                self.screen, f"Computer choose: {computer_choice}", x + 700, y
+            )
             self._show_score(
-                self.screen, f'Computer score: {computer_score}', WIDTH - 210, HEIGHT - 125)
+                self.screen,
+                f"Computer score: {computer_score}",
+                WIDTH - 210,
+                HEIGHT - 125,
+            )
 
             # Set info text
             if player_score == 0 and computer_score == 0:
                 self._set_text(
-                    self.screen, 'Let the game begin! Start by choosing an action', WIDTH - 500, HEIGHT - 250)
+                    self.screen,
+                    "Let the game begin! Start by choosing an action",
+                    WIDTH - 500,
+                    HEIGHT - 250,
+                )
             elif ret == 1:
-                self._set_text(self.screen, 'Player wins',
-                               WIDTH - 500, HEIGHT - 250)
+                self._set_text(self.screen, "Player wins", WIDTH - 500, HEIGHT - 250)
             elif ret == 2:
-                self._set_text(self.screen, 'Computer wins',
-                               WIDTH - 500, HEIGHT - 250)
+                self._set_text(self.screen, "Computer wins", WIDTH - 500, HEIGHT - 250)
             else:
-                self._set_text(self.screen, "It's a draw",
-                               WIDTH - 500, HEIGHT - 250)
+                self._set_text(self.screen, "It's a draw", WIDTH - 500, HEIGHT - 250)
 
             # Update screen for each new event
             pygame.display.flip()
@@ -166,13 +182,23 @@ class RockPaperScissors:
         :returns: 1 -> player wins, 2 -> computer wins
         """
         # Compute winner
-        if (player_choice == ROCK and computer_choice == SCISSORS
-            or player_choice == PAPER and computer_choice == ROCK
-                or player_choice == SCISSORS and computer_choice == PAPER):
+        if (
+            player_choice == ROCK
+            and computer_choice == SCISSORS
+            or player_choice == PAPER
+            and computer_choice == ROCK
+            or player_choice == SCISSORS
+            and computer_choice == PAPER
+        ):
             return 1
-        elif (computer_choice == ROCK and player_choice == SCISSORS
-              or computer_choice == PAPER and player_choice == ROCK
-              or computer_choice == SCISSORS and player_choice == PAPER):
+        elif (
+            computer_choice == ROCK
+            and player_choice == SCISSORS
+            or computer_choice == PAPER
+            and player_choice == ROCK
+            or computer_choice == SCISSORS
+            and player_choice == PAPER
+        ):
             return 2
         return 0
 
@@ -192,15 +218,15 @@ class RockPaperScissors:
         return self._text, self._text_rect
 
     def _rect_pos(self, rect_obj) -> tuple:
-        """Return x, y coordinate for center of rectangle """
+        """Return x, y coordinate for center of rectangle"""
         return rect_obj.centerx, rect_obj.centery
 
     def _create_screen(self) -> pygame.surface.Surface:
-        """Create screen to draw on """
+        """Create screen to draw on"""
         return pygame.display.set_mode((WIDTH, HEIGHT))
 
     def _create_rect(self, x, y, width, height) -> pygame.rect.Rect:
-        """Create rectangle with width and height on x and y coordinate """
+        """Create rectangle with width and height on x and y coordinate"""
         return pygame.Rect(x, y, width, height)
 
     def _show_score(self, screen, inp, x, y):
@@ -212,8 +238,7 @@ class RockPaperScissors:
         :param int x: x coordinate
         :param int y: y coordinate
         """
-        self._text, self._text_rect = self._set_font(
-            inp, 'Calibri', 24, TEXT_COLOUR)
+        self._text, self._text_rect = self._set_font(inp, "Calibri", 24, TEXT_COLOUR)
         self._text_rect.center = (x, y)
         screen.blit(self._text, self._text_rect)
 
@@ -225,8 +250,7 @@ class RockPaperScissors:
         :param str inp: text input
         :param pygame.rect.Rect rect_obj: rectangle object
         """
-        self._text, self._text_rect = self._set_font(
-            inp, 'Calibri', 24, TEXT_COLOUR)
+        self._text, self._text_rect = self._set_font(inp, "Calibri", 24, TEXT_COLOUR)
         x, y = self._rect_pos(rect_obj)
         self._text_rect.center = (x, y)
         screen.blit(self._text, self._text_rect)
@@ -240,8 +264,7 @@ class RockPaperScissors:
         :param int x: x coordinate
         :param int y: y coordinate
         """
-        self._text, self._text_rect = self._set_font(
-            inp, 'Calibri', 24, TEXT_COLOUR)
+        self._text, self._text_rect = self._set_font(inp, "Calibri", 24, TEXT_COLOUR)
         self._text_rect.center = (x, y)
         screen.blit(self._text, self._text_rect)
 
@@ -255,7 +278,6 @@ class RockPaperScissors:
 
     def _draw_title(self, screen, inp) -> None:
         """Draw title on screen with input inp"""
-        self._text, self._text_rect = self._set_font(
-            inp, 'Calibri', 40, TEXT_COLOUR)
+        self._text, self._text_rect = self._set_font(inp, "Calibri", 40, TEXT_COLOUR)
         self._text_rect.center = ((WIDTH / 2), (HEIGHT / 10))
         screen.blit(self._text, self._text_rect)
