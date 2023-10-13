@@ -19,13 +19,13 @@ PARENT_DIR = os.path.abspath(os.getcwd())
 
 # Images used
 ROCK_IMG = pygame.image.load(
-    os.path.join(PARENT_DIR, "resources", "images", "rock.png")
+    os.path.join(PARENT_DIR, 'resources', 'images', 'rock.png')
 )
 PAPER_IMG = pygame.image.load(
-    os.path.join(PARENT_DIR, "resources", "images", "paper.png")
+    os.path.join(PARENT_DIR, 'resources', 'images', 'paper.png')
 )
 SCISSORS_IMG = pygame.image.load(
-    os.path.join(PARENT_DIR, "resources", "images", "scissors.png")
+    os.path.join(PARENT_DIR, 'resources', 'images', 'scissors.png')
 )
 IMG = [ROCK_IMG, PAPER_IMG, SCISSORS_IMG]
 
@@ -37,7 +37,7 @@ CHOICES = [ROCK, PAPER, SCISSORS]
 
 
 class RockPaperScissors:
-    """Game class"""
+    """Rock, Paper and Scissors game class"""
 
     def __init__(self) -> None:
         """Constructor"""
@@ -57,7 +57,7 @@ class RockPaperScissors:
         # Create screen, fill background and add window title
         self.screen = self._create_screen()
         self.screen.fill(WHITE)
-        pygame.display.set_caption("Rock Paper Scissors")
+        pygame.display.set_caption('Rock Paper Scissors')
 
         # Create rectangles that will become buttons
         rock = self._create_rect(50, 600, 80, 40)
@@ -75,17 +75,12 @@ class RockPaperScissors:
         running = True
         while running:
             for event in pygame.event.get():
-                # Quit if window is closed
                 if event.type == pygame.QUIT:
                     running = False
-                # Change layout when player takes action
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    # Mouse position and random generator
                     mouse_pos = pygame.mouse.get_pos()
                     rand = Random().randint(0, 2)
-                    # If player pressed on a given button;
-                    # output image, show winner and update
-                    # points. Checks if mouse is over button
+
                     if rock.collidepoint(mouse_pos):
                         computer_choice = CHOICES[rand]
                         self.screen.blit(
@@ -116,22 +111,19 @@ class RockPaperScissors:
                     else:
                         continue
 
-                    # Set correct scores
                     if ret == 1:
                         player_score += 1
                     elif ret == 2:
                         computer_score += 1
 
-            # Add title and text on the buttons
-            self._draw_title(self.screen, "Rock Paper Scissors")
+            self._draw_title(self.screen, 'Rock Paper Scissors')
             self._draw_rect(self.screen, BUTTON_COLOUR, rock)
-            self._add_rect_text(self.screen, "Rock", rock)
+            self._add_rect_text(self.screen, 'Rock', rock)
             self._draw_rect(self.screen, BUTTON_COLOUR, paper)
-            self._add_rect_text(self.screen, "Paper", paper)
+            self._add_rect_text(self.screen, 'Paper', paper)
             self._draw_rect(self.screen, BUTTON_COLOUR, scissors)
-            self._add_rect_text(self.screen, "Scissors", scissors)
+            self._add_rect_text(self.screen, 'Scissors', scissors)
 
-            # Add computer choice, player score and computer score
             x, y = self._rect_pos(rock)
             self._show_score(
                 self.screen, f"Player score: {player_score}", WIDTH - 810, HEIGHT - 125
@@ -146,7 +138,6 @@ class RockPaperScissors:
                 HEIGHT - 125,
             )
 
-            # Set info text
             if player_score == 0 and computer_score == 0:
                 self._set_text(
                     self.screen,
@@ -161,21 +152,17 @@ class RockPaperScissors:
             else:
                 self._set_text(self.screen, "It's a draw", WIDTH - 500, HEIGHT - 250)
 
-            # Update screen for each new event
             pygame.display.flip()
 
-            # Draw new rectangles to hide old text
             self._draw_rect(self.screen, WHITE, cover_left)
             self._draw_rect(self.screen, WHITE, cover_middle)
             self._draw_rect(self.screen, WHITE, cover_right)
 
-        # Quit pygame and program
         pygame.quit()
         sys.exit()
 
     def _compute(self, computer_choice, player_choice) -> int:
-        """
-        Compute who wins the round and update scores
+        """Compute who wins the round and update scores
 
         :param str computer_choice: computer's action
         :param str player_choice: player's action
@@ -203,8 +190,7 @@ class RockPaperScissors:
         return 0
 
     def _set_font(self, inp, font, size, colour) -> tuple:
-        """
-        Set font for text
+        """Set font for text
 
         :param str inp: text to input
         :param str font: font type
@@ -230,41 +216,38 @@ class RockPaperScissors:
         return pygame.Rect(x, y, width, height)
 
     def _show_score(self, screen, inp, x, y):
-        """
-        Show score of each player in the game
+        """Show score of each player in the game
 
         :param pygame.Surface screen: screen to draw on
         :param str inp: text input
         :param int x: x coordinate
         :param int y: y coordinate
         """
-        self._text, self._text_rect = self._set_font(inp, "Calibri", 24, TEXT_COLOUR)
+        self._text, self._text_rect = self._set_font(inp, 'Calibri', 24, TEXT_COLOUR)
         self._text_rect.center = (x, y)
         screen.blit(self._text, self._text_rect)
 
     def _add_rect_text(self, screen, inp, rect_obj):
-        """
-        Add text to rectangle object
+        """Add text to rectangle object
 
         :param pygame.Surface screen: screen to draw on
         :param str inp: text input
         :param pygame.rect.Rect rect_obj: rectangle object
         """
-        self._text, self._text_rect = self._set_font(inp, "Calibri", 24, TEXT_COLOUR)
+        self._text, self._text_rect = self._set_font(inp, 'Calibri', 24, TEXT_COLOUR)
         x, y = self._rect_pos(rect_obj)
         self._text_rect.center = (x, y)
         screen.blit(self._text, self._text_rect)
 
     def _set_text(self, screen, inp, x, y):
-        """
-        Set text to screen
+        """Set text to screen
 
         :param pygame.Surface screen: screen to draw on
         :param str inp: text input
         :param int x: x coordinate
         :param int y: y coordinate
         """
-        self._text, self._text_rect = self._set_font(inp, "Calibri", 24, TEXT_COLOUR)
+        self._text, self._text_rect = self._set_font(inp, 'Calibri', 24, TEXT_COLOUR)
         self._text_rect.center = (x, y)
         screen.blit(self._text, self._text_rect)
 
@@ -278,6 +261,6 @@ class RockPaperScissors:
 
     def _draw_title(self, screen, inp) -> None:
         """Draw title on screen with input inp"""
-        self._text, self._text_rect = self._set_font(inp, "Calibri", 40, TEXT_COLOUR)
+        self._text, self._text_rect = self._set_font(inp, 'Calibri', 40, TEXT_COLOUR)
         self._text_rect.center = ((WIDTH / 2), (HEIGHT / 10))
         screen.blit(self._text, self._text_rect)
