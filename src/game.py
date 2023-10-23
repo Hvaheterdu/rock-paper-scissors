@@ -54,12 +54,10 @@ class RockPaperScissors:
         player_score = 0
         ret = 0
 
-        # Create screen, fill background and add window title
         self.__screen = self.__create_screen()
         self.__screen.fill(WHITE)
         pygame.display.set_caption('Rock Paper Scissors')
 
-        # Create rectangles that will become buttons
         rock = self.__create_rect(50, 600, 80, 40)
         paper = self.__create_rect(150, 600, 80, 40)
         scissors = self.__create_rect(250, 600, 90, 40)
@@ -71,7 +69,6 @@ class RockPaperScissors:
         cover_middle = self.__create_rect(WIDTH - 800, HEIGHT - 260, 555, 30)
         cover_right = self.__create_rect(WIDTH - 380, HEIGHT - 190, 320, 80)
 
-        # Draw on screen
         running = True
         while running:
             for event in pygame.event.get():
@@ -79,8 +76,8 @@ class RockPaperScissors:
                     running = False
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     mouse_pos = pygame.mouse.get_pos()
-                    rand = Random().randint(0, 2)
 
+                    rand = Random().randint(0, 2)
                     if rock.collidepoint(mouse_pos):
                         computer_choice = CHOICES[rand]
                         self.__screen.blit(
