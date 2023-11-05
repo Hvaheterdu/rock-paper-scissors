@@ -7,17 +7,14 @@ from random import Random
 
 import pygame
 
-# Colour and screen size
 WIDTH = 1000
 HEIGHT = 800
 BUTTON_COLOUR = (153, 204, 255)
 WHITE = (255, 255, 255)
 TEXT_COLOUR = (0, 0, 0)
 
-# Current directory for this file
 PARENT_DIR = os.path.abspath(os.getcwd())
 
-# Images used
 ROCK_IMG = pygame.image.load(
     os.path.join(PARENT_DIR, 'resources', 'images', 'rock.png')
 )
@@ -29,7 +26,6 @@ SCISSORS_IMG = pygame.image.load(
 )
 IMG = [ROCK_IMG, PAPER_IMG, SCISSORS_IMG]
 
-# Player actions
 ROCK = "Rock"
 PAPER = "Paper"
 SCISSORS = "Scissors"
@@ -164,12 +160,7 @@ class RockPaperScissors:
         sys.exit()
 
     def __compute(self, computer_choice, player_choice) -> int:
-        """Compute who wins the round and update scores
-
-        :param str computer_choice: computer's action
-        :param str player_choice: player's action
-        :returns: 1 -> player wins, 2 -> computer wins
-        """
+        """Compute who wins the round and update scores"""
         # Compute winner
         if (
             player_choice == ROCK
@@ -192,14 +183,7 @@ class RockPaperScissors:
         return 0
 
     def __set_font(self, inp, font, size, colour) -> tuple:
-        """Set font for text
-
-        :param str inp: text to input
-        :param str font: font type
-        :param int size: text size
-        :param rgb colour: text colour
-        :returns: pygame font object
-        """
+        """Set font for text"""
         self.__font = pygame.font.SysFont(font, size)
         self.__text = self.__font.render(inp, True, colour)
         self.__text_rect = self.__text.get_rect()
@@ -218,37 +202,20 @@ class RockPaperScissors:
         return pygame.Rect(x, y, width, height)
 
     def __show_score(self, screen, inp, x, y):
-        """Show score of each player in the game
-
-        :param pygame.Surface screen: screen to draw on
-        :param str inp: text input
-        :param int x: x coordinate
-        :param int y: y coordinate
-        """
+        """Show score of each player in the game"""
         self.__text, self.__text_rect = self.__set_font(inp, 'Calibri', 24, TEXT_COLOUR)
         self.__text_rect.center = (x, y)
         screen.blit(self.__text, self.__text_rect)
 
     def __add_rect_text(self, screen, inp, rect_obj):
-        """Add text to rectangle object
-
-        :param pygame.Surface screen: screen to draw on
-        :param str inp: text input
-        :param pygame.rect.Rect rect_obj: rectangle object
-        """
+        """Add text to rectangle object"""
         self.__text, self.__text_rect = self.__set_font(inp, 'Calibri', 24, TEXT_COLOUR)
         x, y = self.__rect_pos(rect_obj)
         self.__text_rect.center = (x, y)
         screen.blit(self.__text, self.__text_rect)
 
     def __set_text(self, screen, inp, x, y):
-        """Set text to screen
-
-        :param pygame.Surface screen: screen to draw on
-        :param str inp: text input
-        :param int x: x coordinate
-        :param int y: y coordinate
-        """
+        """Set text to screen"""
         self.__text, self.__text_rect = self.__set_font(inp, 'Calibri', 24, TEXT_COLOUR)
         self.__text_rect.center = (x, y)
         screen.blit(self.__text, self.__text_rect)
