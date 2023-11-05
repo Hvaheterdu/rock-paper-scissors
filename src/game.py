@@ -13,7 +13,9 @@ BUTTON_COLOUR = (153, 204, 255)
 WHITE = (255, 255, 255)
 TEXT_COLOUR = (0, 0, 0)
 
+
 PARENT_DIR = os.path.abspath(os.getcwd())
+
 
 ROCK_IMG = pygame.image.load(
     os.path.join(PARENT_DIR, 'resources', 'images', 'rock.png')
@@ -25,6 +27,7 @@ SCISSORS_IMG = pygame.image.load(
     os.path.join(PARENT_DIR, 'resources', 'images', 'scissors.png')
 )
 IMG = [ROCK_IMG, PAPER_IMG, SCISSORS_IMG]
+
 
 ROCK = "Rock"
 PAPER = "Paper"

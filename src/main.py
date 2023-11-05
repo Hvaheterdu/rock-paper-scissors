@@ -5,7 +5,6 @@ from game import RockPaperScissors
 
 
 def main() -> None:
-    """Main method were we start the game"""
     game = RockPaperScissors()
     game.play()
 
