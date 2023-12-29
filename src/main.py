@@ -4,7 +4,7 @@
 from game import RockPaperScissors
 
 
-def main() -> None:
+def main():
     game = RockPaperScissors()
     game.play()
 
