@@ -151,7 +151,6 @@ class RockPaperScissors:
 
     def _compute(self, computer_choice: str, player_choice: str) -> int:
         """Compute who wins the round and update scores"""
-        # Compute winner
         if (
             player_choice == ROCK
             and computer_choice == SCISSORS
