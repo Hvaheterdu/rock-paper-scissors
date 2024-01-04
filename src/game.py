@@ -39,15 +39,15 @@ CHOICES = [ROCK, PAPER, SCISSORS]
 class RockPaperScissors:
     """Rock, Paper and Scissors game class"""
 
-    def __init__(self) -> None:
+    def __init__(self):
         """Constructor"""
         pygame.init()
 
-    def play(self) -> None:
+    def play(self):
         """Start the game"""
         self._draw()
 
-    def _draw(self) -> None:
+    def _draw(self):
         """Create elements and draw the game"""
         computer_choice = 0
         computer_score = 0
