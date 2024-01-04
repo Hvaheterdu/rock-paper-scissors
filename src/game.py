@@ -194,20 +194,20 @@ class RockPaperScissors:
 
     def __show_score(self, screen: pygame.Surface, inp: str, x: int, y: int):
         """Show score of each player in the game"""
-        _text, _text_rect = self._set_font(inp, FONT, FONT_SIZE_TEXT, TEXT_COLOUR)
+        _text, _text_rect = self.__set_font(inp, FONT, FONT_SIZE_TEXT, TEXT_COLOUR)
         _text_rect.center = (x, y)
         screen.blit(_text, _text_rect)
 
     def __add_rect_text(self, screen: pygame.Surface, inp: str, rect_obj: pygame.Rect):
         """Add text to rectangle object"""
-        _text, _text_rect = self._set_font(inp, FONT, FONT_SIZE_TEXT, TEXT_COLOUR)
-        x, y = self._rect_pos(rect_obj)
+        _text, _text_rect = self.__set_font(inp, FONT, FONT_SIZE_TEXT, TEXT_COLOUR)
+        x, y = self.__rect_pos(rect_obj)
         _text_rect.center = (x, y)
         screen.blit(_text, _text_rect)
 
     def __set_text(self, screen: pygame.Surface, inp: str, x: int, y: int):
         """Set text to screen"""
-        _text, _text_rect = self._set_font(inp, FONT, FONT_SIZE_TEXT, TEXT_COLOUR)
+        _text, _text_rect = self.__set_font(inp, FONT, FONT_SIZE_TEXT, TEXT_COLOUR)
         _text_rect.center = (x, y)
         screen.blit(_text, _text_rect)
 
@@ -226,6 +226,6 @@ class RockPaperScissors:
 
     def __draw_title(self, screen: pygame.Surface, inp: str):
         """Draw title on screen with input inp"""
-        _text, _text_rect = self._set_font(inp, FONT, 40, TEXT_COLOUR)
+        _text, _text_rect = self.__set_font(inp, FONT, 40, TEXT_COLOUR)
         _text_rect.center = ((WIDTH // 2), (HEIGHT // 10))
         screen.blit(_text, _text_rect)
