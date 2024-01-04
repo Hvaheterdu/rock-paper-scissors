@@ -54,8 +54,8 @@ class RockPaperScissors:
         player_score = 0
         ret = 0
 
-        _screen = self._create_screen()
-        _screen.fill(WHITE)
+        screen = self._create_screen()
+        screen.fill(WHITE)
         pygame.display.set_caption('Rock Paper Scissors')
 
         rock = self._create_rect(50, 600, 80, 40)
@@ -80,20 +80,20 @@ class RockPaperScissors:
                     rand = Random().randint(0, 2)
                     if rock.collidepoint(mouse_pos):
                         computer_choice = CHOICES[rand]
-                        _screen.blit(self._scale_image(ROCK_IMG, 300, 300), (45, 200))
-                        _screen.blit(self._scale_image(IMG[rand], 300, 300), (650, 200))
+                        screen.blit(self._scale_image(ROCK_IMG, 300, 300), (45, 200))
+                        screen.blit(self._scale_image(IMG[rand], 300, 300), (650, 200))
                         ret = self._compute(computer_choice, ROCK)
                     elif paper.collidepoint(mouse_pos):
                         computer_choice = CHOICES[rand]
-                        _screen.blit(self._scale_image(PAPER_IMG, 300, 300), (45, 200))
-                        _screen.blit(self._scale_image(IMG[rand], 300, 300), (650, 200))
+                        screen.blit(self._scale_image(PAPER_IMG, 300, 300), (45, 200))
+                        screen.blit(self._scale_image(IMG[rand], 300, 300), (650, 200))
                         ret = self._compute(computer_choice, PAPER)
                     elif scissors.collidepoint(mouse_pos):
                         computer_choice = CHOICES[rand]
-                        _screen.blit(
+                        screen.blit(
                             self._scale_image(SCISSORS_IMG, 300, 300), (45, 200)
                         )
-                        _screen.blit(self._scale_image(IMG[rand], 300, 300), (650, 200))
+                        screen.blit(self._scale_image(IMG[rand], 300, 300), (650, 200))
                         ret = self._compute(computer_choice, SCISSORS)
                     else:
                         continue
@@ -103,24 +103,24 @@ class RockPaperScissors:
                     elif ret == 2:
                         computer_score += 1
 
-            self._draw_title(_screen, 'Rock Paper Scissors')
-            self._draw_rect(_screen, BUTTON_COLOUR, rock)
-            self._add_rect_text(_screen, 'Rock', rock)
-            self._draw_rect(_screen, BUTTON_COLOUR, paper)
-            self._add_rect_text(_screen, 'Paper', paper)
-            self._draw_rect(_screen, BUTTON_COLOUR, scissors)
-            self._add_rect_text(_screen, 'Scissors', scissors)
+            self._draw_title(screen, 'Rock Paper Scissors')
+            self._draw_rect(screen, BUTTON_COLOUR, rock)
+            self._add_rect_text(screen, 'Rock', rock)
+            self._draw_rect(screen, BUTTON_COLOUR, paper)
+            self._add_rect_text(screen, 'Paper', paper)
+            self._draw_rect(screen, BUTTON_COLOUR, scissors)
+            self._add_rect_text(screen, 'Scissors', scissors)
 
             x, y = self._rect_pos(rock)
             self._show_score(
-                _screen,
+                screen,
                 f"Player score: {player_score}",
                 WIDTH - 810,
                 HEIGHT - 125,
             )
-            self._set_text(_screen, f"Computer choose: {computer_choice}", x + 700, y)
+            self._set_text(screen, f"Computer choose: {computer_choice}", x + 700, y)
             self._show_score(
-                _screen,
+                screen,
                 f"Computer score: {computer_score}",
                 WIDTH - 210,
                 HEIGHT - 125,
@@ -128,23 +128,23 @@ class RockPaperScissors:
 
             if player_score == 0 and computer_score == 0:
                 self._set_text(
-                    _screen,
+                    screen,
                     "Let the game begin! Start by choosing an action",
                     WIDTH - 500,
                     HEIGHT - 250,
                 )
             elif ret == 1:
-                self._set_text(_screen, "Player wins", WIDTH - 500, HEIGHT - 250)
+                self._set_text(screen, "Player wins", WIDTH - 500, HEIGHT - 250)
             elif ret == 2:
-                self._set_text(_screen, "Computer wins", WIDTH - 500, HEIGHT - 250)
+                self._set_text(screen, "Computer wins", WIDTH - 500, HEIGHT - 250)
             else:
-                self._set_text(_screen, "It's a draw", WIDTH - 500, HEIGHT - 250)
+                self._set_text(screen, "It's a draw", WIDTH - 500, HEIGHT - 250)
 
             pygame.display.flip()
 
-            self._draw_rect(_screen, WHITE, cover_left)
-            self._draw_rect(_screen, WHITE, cover_middle)
-            self._draw_rect(_screen, WHITE, cover_right)
+            self._draw_rect(screen, WHITE, cover_left)
+            self._draw_rect(screen, WHITE, cover_middle)
+            self._draw_rect(screen, WHITE, cover_right)
 
         pygame.quit()
         sys.exit()
