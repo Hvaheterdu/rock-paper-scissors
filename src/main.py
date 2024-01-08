@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Starting file for game"""
 
 
 from game import RockPaperScissors
