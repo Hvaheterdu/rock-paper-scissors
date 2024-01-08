@@ -49,6 +49,7 @@ class RockPaperScissors:
 
     def __draw(self):
         """Create elements and draw the game"""
+        game_started = False
         computer_choice = 0
         computer_score = 0
         player_score = 0
@@ -75,6 +76,7 @@ class RockPaperScissors:
                 if event.type == pygame.QUIT:
                     running = False
                 if event.type == pygame.MOUSEBUTTONDOWN:
+                    game_started = True
                     mouse_pos = pygame.mouse.get_pos()
 
                     rand = Random().randint(0, 2)
@@ -133,7 +135,7 @@ class RockPaperScissors:
                 HEIGHT - 125,
             )
 
-            if player_score == 0 and computer_score == 0:
+            if not game_started:
                 self.__set_text(
                     screen,
                     'Let the game begin! Start by choosing an action',
@@ -242,3 +244,7 @@ class RockPaperScissors:
         _text, _text_rect = self.__set_font(inp, FONT, 40, TEXT_COLOUR)
         _text_rect.center = ((WIDTH // 2), (HEIGHT // 10))
         screen.blit(_text, _text_rect)
+
+
+if __name__ == '__main__':
+    pass
