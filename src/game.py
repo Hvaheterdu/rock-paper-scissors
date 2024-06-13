@@ -34,7 +34,6 @@ class RockPaperScissors:
     """Rock, Paper and Scissors game and GUI class."""
 
     def __init__(self):
-        """Constructor."""
         pygame.init()
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
         pygame.display.set_caption('Rock Paper Scissors')
@@ -143,7 +142,7 @@ class RockPaperScissors:
             and computer_choice == PAPER
         ):
             return 1
-        elif (
+        if (
             computer_choice == ROCK
             and player_choice == SCISSORS
             or computer_choice == PAPER
