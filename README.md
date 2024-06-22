@@ -19,7 +19,7 @@ Download/Clone the repo and enter the _root_ folder.
 Start the game with
 
 ```
-$ python3 src/main.py
+$ python src/main.py
 ```
 
 ## GUI
