@@ -2,8 +2,6 @@
 
 This is a simple **rock-paper-scissors** game between a player and the computer.
 
-Better solutions are most likely out there, but this was the first time I used the pygame module.
-
 ## Prerequisite
 
 This game has been written with Python3 and requires the _pygame_ module.
